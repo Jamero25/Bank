@@ -1,0 +1,115 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JTextPane;
+import javax.swing.JLabel;
+
+import java.awt.Desktop;
+import java.awt.Panel;
+import java.awt.TextField;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.FlowLayout;
+import java.awt.Color;
+
+import org.apache.tomcat.jni.File;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+
+import com.barcodelib.barcode.QRCode;
+
+import java.awt.Component;
+import java.awt.Label;
+import javax.swing.JMenuBar;
+import java.io.*;
+
+
+public class Crear {
+
+	private JFrame frame;
+	private JTextField jtextcodigo;
+	int udm=0;
+	int resol=72;
+	float mi=0.000f;
+	float md=0.000f;
+	float ms=0.000f;
+	float min=0.000f;
+	int rot=0;
+	float tam=5.000f;
+	
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Crear window = new Crear();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Crear() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		
+		Panel panel = new Panel();
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		
+		JLabel lblGeneradorDeCdigo = new JLabel("Generador de c\u00F3digo");
+		panel.add(lblGeneradorDeCdigo);
+		
+		jtextcodigo = new JTextField();
+		panel.add(jtextcodigo);
+		jtextcodigo.setColumns(15);
+		
+		JButton btnGenerar = new JButton("Generar");
+		btnGenerar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					QRCode cod = new QRCode();
+					String texto= jtextcodigo.getText();
+					cod.setData(texto);
+					cod.setDataMode(QRCode.MODE_BYTE);
+					cod.setUOM(udm);
+					cod.setLeftMargin(mi);
+					cod.setResolution(resol);
+					cod.setRightMargin(md);
+					cod.setTopMargin(ms);
+					cod.setBottomMargin(min);
+					cod.setRotate(rot);
+					cod.setModuleSize(tam);
+					String archivo=System.getProperty("user.home")+"/codigodemo.gif";
+					cod.renderBarcode(archivo);
+					Desktop d =Desktop.getDesktop();
+					d.open(new java.io.File(archivo));
+
+					} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+					}
+					
+			}
+		});
+		panel.add(btnGenerar);
+	}
+
+}

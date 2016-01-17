@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Portal GIBANK</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link href="styles.css" rel="stylesheet" type="text/css" media="screen" />
+		<link rel="stylesheet" href="nivo-slider.css" type="text/css" media="screen" />
+		<script type="text/javascript">
+function abrir_ventana_total(x) {
+	y = screen.availWidth;
+	z = screen.availHeight;
+	var ventana = window.open(x, x, "width="+y+", height="+z+", status=no, scrollbars=no, toolbars=no, menubar=no");
+	ventana.moveTo(0,0);
+}
+</script>
+	</head>
+	<body>
+		<div id="bg_black">
+			<div id="logo">	
+				<h1>&nbsp;</h1>
+				<a href="#"><small><img src="images/logo.png" alt="" width="120" height="89" /></small></a>
+			</div>
+			<div id="wrap">
+				<div id="header">
+					<div id="wrapper">
+						<div id="slider-wrapper">
+							<div id="slider" class="nivoSlider">
+								<img src="images/header.jpg" alt="" />
+								<img src="images/header2.jpg" alt=""/>
+								<img src="images/header3.jpg" alt="" />
+								<img src="images/header4.jpg" alt="" />
+							</div>
+						</div>
+					</div>
+					<div class="ic"></div>
+					<script type="text/javascript" src="lib/jquery-1.4.3.min.js"></script>
+					<script type="text/javascript" src="lib/jquery.nivo.slider.pack.js"></script>
+					<script type="text/javascript">
+					$(window).load(function() {
+						$('#slider').nivoSlider();
+					});
+					</script>
+				</div>
+				
+				<div id="column_box">
+					<div id="column1m">
+						<h2 align="center">GIBANK ONLINE</h2>
+						<a href="javascript:abrir_ventana_total('Login.jsp')"><img src="images/acceso.jpg" width="400px" style="float:center; margin-left: 320px;"></a>
+		
+					</div>
+					<div class="clear"></div>
+				</div>
+			
+				<div id="last_box">
+					<table cellspacing="50px">
+						<tr>
+							<td height="100px" width="50%">
+<p><a href="#">Noticias recientes.</a><br/><br>
+<p> * Cuando realice pagos que involucren grandes sumas de dinero no se arriesgue, hágalo con toda seguridad, adquiera los Cheques de Gerencia de manera Online ingresando a su banca en línea.</p>							</td>
+							<td width="50%">
+<p> * Realizar los pagos de servicios ya no serán un problema, suscríbase a la red de pagos y notificaciones que le ofrece GIBANK. </p>
+<p> * Conoce más sobre la utilización de tu móvil para comenzar a contar con los servicios que GIBANK móvil te ofrece.</p>
+ </td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div id="footer_bot">
+			GIBANK 2014
+		</div>
+	</body>
+</html>
